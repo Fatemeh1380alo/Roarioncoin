@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roarion - The King of Meme</title>
+    <link rel="icon" href="[Path to your Roarion logo for Favicon]" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        :root {
+            --primary-color: #FFD700; /* Gold */
+            --secondary-color: #333333; /* Dark Grey */
+            --accent-color: #007bff; /* Blue for buttons/links */
+            --text-color: #f0f0f0; /* Light text on dark background */
+            --bg-dark: #1a1a1a;
+            --bg-light: #2c2c2c;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Default font */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            line-height: 1.6;
+            direction: ltr; /* Left-to-right for English */
+            text-align: left; /* Align text to left */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif; /* Stronger font for headings */
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #FFD700AA;
+            color: var(--secondary-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #e6c200; /* Slightly darker gold */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-light);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+        }
+
+        header .logo img {
+            height: 60px; /* Adjust logo height as needed */
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allows menu items to wrap */
+            justify-content: center; /* Center nav items on smaller screens */
+        }
+
+        header nav ul li {
+            margin-left: 25px; /* Adjust spacing */
+        }
+
+        header nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05em;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        header nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: url('about-2.jpeg') no-repeat center center/cover;
+            color: white;
+            padding: 180px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        #hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Overlay for readability */
+            z-index: -1;
+        }
+
+        #hero h1 {
+            font-size: 4.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        }
+
+        #hero p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        /* Mobile-first approach for hero section */
+        @media only screen and (max-width: 768px) { /* Adjust breakpoint for larger mobiles/small tablets */
+            #hero {
+                padding: 100px 20px; /* Reduce padding for smaller screens */
+            }
+            #hero h1 {
+                font-size: 2.8em; /* Adjusted font size for better readability on smaller screens */
+                margin-bottom: 15px;
+            }
+            #hero p {
+                font-size: 1.2em;
+            }
+        }
+        @media only screen and (max-width: 480px) { /* Even smaller screens */
+            #hero {
+                padding: 80px 15px;
+            }
+            #hero h1 {
+                font-size: 2.2em;
+            }
+            #hero p {
+                font-size: 1em;
+            }
+            .btn {
+                padding: 10px 20px; /* Smaller buttons on very small screens */
+                font-size: 1em;
+            }
+        }
+
+
+        /* About Us */
+        #about {
+            background-color: var(--bg-light);
+            text-align: left;
+        }
+        #about .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap; /* Allow content and image to wrap */
+            justify-content: center; /* Center items when wrapped */
+        }
+        #about .about-content {
+            flex: 1;
+            min-width: 300px; /* Ensure content doesn't get too narrow */
+        }
+        #about .about-image {
+            flex: 1;
+            max-width: 500px; /* Adjust size */
+        }
+        #about .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Why Roarion */
+        #why-roarion {
+            background-color: var(--bg-dark);
+        }
+        .features-grid {
+            display: flex;
+            gap: 20px;
+            margin-top: 50px;
+            flex-wrap: wrap; /* Allow features to wrap */
+            justify-content: center; /* Center items when wrapped */
+        }
+        .feature-item {
+            background-color: var(--bg-light);
+            flex: 1 1 280px; /* Allow items to grow/shrink, with a base width of 280px */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 30%; /* Limit max width on larger screens */
+        }
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-top: 15px;
+            font-size: 1.4em;
+        }
+        .feature-item p {
+            font-size: 1em;
+            color: var(--text-color);
+        }
+        .feature-item .icon {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Tokenomics */
+        #tokenomics {
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+        .tokenomics-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .tokenomic-item {
+            background-color: var(--bg-dark);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            flex: 1 1 280px; /* Base width for items */
+            max-width: 45%; /* Limit max width on larger screens */
+        }
+        .tokenomic-item h3 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .tokenomic-item p {
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+        .tokenomic-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left; /* Align list items to left */
+        }
+        .tokenomic-item ul li {
+            margin-bottom: 8px;
+        }
+        .tokenomics-chart {
+            margin-top: 40px;
+        }
+        .tokenomics-chart img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Roadmap */
+        #roadmap {
+            background-color: var(--bg-dark);
+            background: url('roadmap.jpeg') no-repeat center center/cover;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .roadmap-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+            padding: 20px 0;
+        }
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%; /* Center the line */
+            top: 0;
+            width: 4px;
+            background-color: var(--primary-color);
+            height: 100%;
+            margin-left: -2px; /* Adjust to perfectly center */
+        }
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: left;
+            width: calc(50% - 60px); /* Adjust width to fit beside the line */
+        }
+        .roadmap-item:nth-child(odd) {
+            left: 0;
+            margin-right: auto;
+            transform: translateX(-100%); /* Move odd items to the left side */
+            margin-left: -20px; /* Adjust to align with the line */
+        }
+        .roadmap-item:nth-child(even) {
+            right: 0;
+            margin-left: auto;
+            transform: translateX(100%); /* Move even items to the right side */
+            margin-right: -20px; /* Adjust to align with the line */
+        }
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 1;
+            /* Positioning for the dot */
+            right: -28px; /* For odd items (left side of line) */
+        }
+        .roadmap-item:nth-child(even)::before {
+            left: -28px; /* For even items (right side of line) */
+            right: auto;
+        }
+        .roadmap-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+        .roadmap-item p {
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+        /* How to Buy */
+        #how-to-buy {
+            background-color: var(--bg-light);
+        }
+        .buy-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .step-item {
+            background-color: var(--bg-dark);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            flex: 1 1 280px; /* Base width for items */
+            max-width: 30%; /* Limit max width on larger screens */
+            text-align: center;
+        }
+        .step-item .step-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .step-item h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .step-item p {
+            font-size: 0.95em;
+            color: var(--text-color);
+        }
+
+        /* Community */
+        #community {
+            background-color: var(--bg-light);
+        }
+        .social-links {
+            margin-top: 40px;
+        }
+        .social-links a {
+            color: var(--text-color);
+            font-size: 3em;
+            margin: 0 20px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            padding: 30px 20px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* --- Responsive Design Adjustments --- */
+
+        /* Tablets and Smaller Desktops (768px to 1024px) */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3em; }
+            h2 { font-size: 2.2em; }
+            section { padding: 60px 15px; }
+
+            header .container {
+                flex-direction: column; /* Stack logo and nav vertically */
+                align-items: center;
+            }
+            header nav ul {
+                margin-top: 15px;
+                gap: 15px; /* Spacing between nav items */
+                justify-content: center;
+            }
+            header nav ul li {
+                margin-left: 0; /* Remove horizontal margin */
+            }
+
+            #about .container {
+                gap: 20px; /* Reduce gap */
+            }
+
+            .feature-item, .tokenomic-item, .step-item {
+                max-width: 48%; /* Two columns on tablets */
+            }
+
+            /* Roadmap specific for tablets */
+            .roadmap-timeline::before {
+                left: 50%;
+            }
+            .roadmap-item {
+                width: calc(50% - 60px); /* Maintain side-by-side but adjust for smaller screen */
+            }
+        }
+
+        /* Mobile Devices (max-width: 767px) */
+        @media (max-width: 767px) {
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.5em; }
+            p { font-size: 1em; }
+            section { padding: 40px 15px; }
+
+            header .container {
+                padding: 0 15px;
+            }
+            header .logo img {
+                height: 50px;
+            }
+            header nav ul {
+                flex-direction: column; /* Stack nav items vertically */
+                width: 100%; /* Make nav full width */
+                text-align: center;
+                gap: 10px; /* Reduce vertical spacing */
+            }
+            header nav ul li {
+                margin: 0; /* Remove any remaining margins */
+                width: 100%;
+            }
+            header nav ul li a {
+                padding: 5px 0; /* Add some vertical padding for touch targets */
+                display: block; /* Make links full width */
+            }
+
+            #about .container {
+                flex-direction: column; /* Stack content and image vertically */
+                text-align: center;
+            }
+            #about .about-content {
+                min-width: unset; /* Remove min-width for full flexibility */
+                width: 100%; /* Ensure content takes full width */
+            }
+            #about .about-image {
+                max-width: 80%; /* Slightly smaller image on mobile */
+            }
+
+            .features-grid, .tokenomics-grid, .buy-steps {
+                flex-direction: column; /* Stack all grid items vertically */
+                gap: 20px;
+            }
+            .feature-item, .tokenomic-item, .step-item {
+                max-width: 90%; /* Almost full width for single column layout */
+                flex: 1 1 auto; /* Allow full flexibility */
+            }
+
+            /* Roadmap specific for mobile */
+            .roadmap-timeline {
+                max-width: 90%; /* Adjust max-width for smaller screens */
+                padding: 0; /* Remove horizontal padding */
+            }
+            .roadmap-timeline::before {
+                left: 20px; /* Move the timeline line to the left side */
+                margin-left: 0;
+            }
+            .roadmap-item {
+                width: calc(100% - 40px); /* Full width for the item, considering padding */
+                margin: 0 0 40px 40px; /* Push items to the right to clear the line */
+                padding: 15px;
+                text-align: left; /* Keep text aligned left */
+                transform: translateX(0); /* Reset transform */
+            }
+            /* Position dot for all roadmap items on the left side of the line */
+            .roadmap-item::before {
+                left: -20px; /* Position dot relative to the item's left edge */
+                right: auto;
+                top: 25px; /* Adjust vertical position of the dot */
+            }
+            .roadmap-item:nth-child(even)::before { /* No need for special rules for even children now */
+                left: -20px;
+                right: auto;
+            }
+        }
+
+        /* Very Small Mobile Devices (max-width: 480px) */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.5em; }
+            h3 { font-size: 1.3em; }
+            p { font-size: 0.9em; }
+            section { padding: 30px 10px; }
+
+            .btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .social-links a {
+                font-size: 2.5em;
+                margin: 0 10px;
+            }
+
+            .roadmap-item {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="padding: 0 20px;">
+            <div class="logo">
+                <a href="#hero"><img src="logo-2.jpeg" alt="Roarion Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#tokenomics">Tokenomics</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#how-to-buy">How to Buy</a></li>
+                    <li><a href="#why-roarion">Why Roarion</a></li>
+                    <li><a href="#community">Community</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>🔥👑 ROARION 👑🔥</h1>
+            <p>The King of Meme Coins Has Arrived. Join the Pride and Embrace the Roar!</p>
+            <a href="[Link to buy Roarion on Pump.fun]" target="_blank" class="btn">Buy Roarion</a>
+            </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 style="margin-top: 0;">About Roarion: The Reign Has Begun</h2>
+                <p>🦁 THE APEX PREDATOR HAS ENTERED THE CRYPTO WILD.</p>
+                <p>Welcome to Roarion — the meme coin that doesn’t rule... it hunts.</p>
+                <p>Inspired by the lion’s law of the jungle, Roarion brings:</p>
+                <p>✅ Raw Strength (Weak hands = easy prey).<br>
+                ✅ Tactical Dominance (Pump? Dump? No—ambush).<br>
+                ✅ A Roar That Shatters Shitcoin Kingdoms.</p>
+                <p>"Shiba whimpers. Floki hides. Pepe plays dead. The King’s gaze locks on—no escape."</p>
+                <p>This isn’t a coin. It’s a bloody coup. 👑💀<br>
+                With its fierce energy and regal presence, Roarion brings the crypto community together under one royal banner.</p>
+                <p>🔥 THE HUNT IS LIVE. JOIN THE PRIDE... OR BECOME PREY.<br>
+                [🩸 Join the Kill] | [📢 Hear the Roar]</p>
+                <p>#RoarionDominance #MemeCoinMassacre #HODLOrBeHunted</p>
+            </div>
+            <div class="about-image">
+                <img src="about.jpeg" alt="About Roarion">
+            </div>
+        </div>
+    </section>
+
+    <section id="why-roarion">
+        <div class="container">
+            <h2>Why Roarion? Join the Pride!</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="icon">👑</div>
+                    <h3>The Undisputed King</h3>
+                    <p>Roarion stands as the unchallenged leader in the meme coin space, setting new standards for community engagement and project integrity.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">💪</div>
+                    <h3>Symbol of Strength</h3>
+                    <p>The roaring lion represents the courage, dominance, and unwavering spirit that drives our community.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🤝</div>
+                    <h3>Community-Driven</h3>
+                    <p>Our kingdom is built by and for its members. We are committed to fostering an environment of innovation and collaboration.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">🛡️</div>
+                    <h3>Transparency & Security</h3>
+                    <p>With renounced ownership and burned liquidity, we uphold transparency and trust from day one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics">
+        <div class="container">
+            <h2>Roarion Tokenomics</h2>
+            <p>A fair distribution for a powerful kingdom.</p>
+            <div class="tokenomics-grid">
+                <div class="tokenomic-item">
+                    <h3>Total Supply</h3>
+                    <p>1,000,000,000 $ROARION</p>
+                </div>
+                <div class="tokenomic-item">
+                    <h3>Distribution</h3>
+                    <p>100% Fair Launch via Bonding Curve on Pump.fun.</p>
+                </div>
+                <div class="tokenomic-item">
+                    <h3>Key Features</h3>
+                        <p>Liquidity Burned</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <h2>Roadmap: The Roarion Kingdom</h2>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item">
+                    <h3>Phase 1: The Coronation Begins!</h3>
+                    <p>"Our website and content are ready—no peasant landing page, but a **digital throne** fit for crypto royalty!"</p>
+                </div>
+                <div class="roadmap-item">
+                    <h3>Phase 2: A King’s Fairness!</h3>
+                    <p>"Our reign began with a **Fair Launch—no rug pulls, no scams, just a **righteous crowning** for all loyal subjects!"</p>
+                </div>
+                <div class="roadmap-item">
+                    <h3>Phase 3: Building the Mightiest Crypto Pride!</h3>
+                    <p>"We’re assembling the **most legendary crypto community—no VIP nonsense, no pay-to-win… **you’re all knights of this empire!"</p>
+                </div>
+                <div class="roadmap-item">
+                    <h3>Phase 4: The Global Takeover!</h3>
+                    <p>"This kingdom **will conquer the entire crypto world—you’re invited: **bow or join the revolution!"</p>
+                </div>
+                <div class="roadmap-item">
+                    <h3>Phase 5: The Royal Secret: Unveiling the Future</h3>
+                    <p>"In approximately 20 Roars (Days), the realm of Roarion will witness an event whose magnificence will forever transform the history of memecoins."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to-buy">
+        <div class="container">
+            <h2>How to Buy Roarion?</h2>
+            <p>Joining the Roarion pride is easy! Follow these simple steps to get your $ROARION:</p>
+            <div class="buy-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Get a Solana Wallet</h3>
+                    <p>Download and install a Solana-compatible wallet like Phantom or Trust Wallet on your mobile device or browser.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Fund Your Wallet with SOL</h3>
+                    <p>Purchase Solana (SOL) from a cryptocurrency exchange (e.g., Binance, Coinbase) and send it to your new wallet.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Connect to Pump.fun</h3>
+                    <p>Visit Pump.fun through your wallet's DApp browser, connect your wallet, and search for $ROARION.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>Swap SOL for ROARION</h3>
+                    <p>Enter the amount of SOL you wish to swap for $ROARION and confirm the transaction. Welcome to the pride!</p>
+                </div>
+            </div>
+            <a href="[Link to Pump.fun]" target="_blank" class="btn">Buy Roarion on Pump.fun</a>
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="container">
+            <h2>Join the Roarion Community!</h2>
+            <p>Become part of the fiercest pride in crypto. Connect with us on social media:</p>
+            <div class="social-links">
+                <a href="[Link to Telegram]" target="_blank"><img src="telegram-icon.png" alt="Telegram" style="height: 50px;"></a>
+                <a href="[Link to Twitter/X]" target="_blank"><img src="twitter-icon.png" alt="Twitter/X" style="height: 50px;"></a>
+                </div>
+            <p>Let your roar be heard!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Roarion. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
